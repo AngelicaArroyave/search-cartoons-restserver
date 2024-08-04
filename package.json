@@ -1,0 +1,15 @@
+{
+  "name": "search-cartoons-restserver",
+  "version": "1.0.0",
+  "description": "Proyecto de búsqueda y administración de cartoons con Node JS y Angular, basados en el curso *Legacy - Node de cero a experto en Udemy*",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
