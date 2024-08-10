@@ -13,6 +13,12 @@ export const emailExists = async (email = '') => {
     if(exists) throw new Error(`The email ${email} is not valid because it is registered in the database`)
 }
 
+export const validateNameWithoutNumbers = async (name = '') => {
+    const exist = (/\d/).test(name)
+
+    if(exist) throw new Error(`The name ${name} cannot have numbers`)
+}
+
 export const userIDExists = async (id = '') => {
     const exists = await User.findById(id)
 
