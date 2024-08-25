@@ -1,4 +1,5 @@
 import { Character } from '../models/character.js'
+import { Event } from '../models/event.js'
 import { Role } from '../models/role.js'
 import { User } from '../models/user.js'
 
@@ -28,6 +29,12 @@ export const userIDExists = async (id = '') => {
 
 export const characterIDExists = async (id = '') => {
     const exists = await Character.findById(id)
+
+    if(!exists) throw new Error(`The ID ${id} does not exist in the database`)
+}
+
+export const eventIDExists = async (id = '') => {
+    const exists = await Event.findById(id)
 
     if(!exists) throw new Error(`The ID ${id} does not exist in the database`)
 }

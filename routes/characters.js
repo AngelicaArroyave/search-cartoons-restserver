@@ -1,5 +1,5 @@
 import { characterById, createCharacter, deleteCharacter, listCharacters, updateCharacter } from '../controllers/characters.js'
-import { characterIDExists, validateNameWithoutNumbers } from '../helpers/db-validators.js'
+import { characterIDExists } from '../helpers/db-validators.js'
 import { check } from 'express-validator'
 import { isAdminRole } from '../middlewares/validate-roles.js'
 import { Router } from 'express'
@@ -21,7 +21,6 @@ routerCharacters.post('/', [
     validateJWT,
     isAdminRole,
     check('name', 'The name is required').not().isEmpty(),
-    check('name', 'The name is not valid').custom(validateNameWithoutNumbers),
     check('description', 'The description is required').not().isEmpty(),
     check('image', 'The image is required').not().isEmpty(),
     validateFields
