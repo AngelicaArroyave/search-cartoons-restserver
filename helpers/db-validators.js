@@ -1,3 +1,4 @@
+import { Character } from '../models/character.js'
 import { Role } from '../models/role.js'
 import { User } from '../models/user.js'
 
@@ -21,6 +22,12 @@ export const validateNameWithoutNumbers = async (name = '') => {
 
 export const userIDExists = async (id = '') => {
     const exists = await User.findById(id)
+
+    if(!exists) throw new Error(`The ID ${id} does not exist in the database`)
+}
+
+export const characterIDExists = async (id = '') => {
+    const exists = await Character.findById(id)
 
     if(!exists) throw new Error(`The ID ${id} does not exist in the database`)
 }
