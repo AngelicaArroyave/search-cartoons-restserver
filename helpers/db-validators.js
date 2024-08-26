@@ -1,4 +1,5 @@
 import { Character } from '../models/character.js'
+import { Creator } from '../models/creator.js'
 import { Event } from '../models/event.js'
 import { Role } from '../models/role.js'
 import { User } from '../models/user.js'
@@ -35,6 +36,12 @@ export const characterIDExists = async (id = '') => {
 
 export const eventIDExists = async (id = '') => {
     const exists = await Event.findById(id)
+
+    if(!exists) throw new Error(`The ID ${id} does not exist in the database`)
+}
+
+export const creatorIDExists = async (id = '') => {
+    const exists = await Creator.findById(id)
 
     if(!exists) throw new Error(`The ID ${id} does not exist in the database`)
 }

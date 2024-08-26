@@ -1,6 +1,7 @@
 import { dbConnection } from '../database/config.js'
 import { routerAuth } from '../routes/auth.js'
 import { routerCharacters } from '../routes/characters.js'
+import { routerCreators } from '../routes/creator.js'
 import { routerEvents } from '../routes/events.js'
 import { routerUser } from '../routes/users.js'
 import cors from 'cors'
@@ -13,6 +14,7 @@ export class Server {
         this.paths = {
             auth: '/api/auth',
             characters: '/api/characters',
+            creators: '/api/creators',
             events: '/api/events',
             users: '/api/users'
         }
@@ -34,6 +36,7 @@ export class Server {
     routes() {
         this.app.use(this.paths.auth, routerAuth),
         this.app.use(this.paths.characters, routerCharacters),
+        this.app.use(this.paths.creators, routerCreators),
         this.app.use(this.paths.events, routerEvents),
         this.app.use(this.paths.users, routerUser)
     }

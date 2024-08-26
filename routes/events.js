@@ -28,7 +28,7 @@ routerEvents.post('/', [
     validateFields
 ], createEvent)
 
-routerEvents.put('/:id',[
+routerEvents.put('/:id', [
     validateJWT,
     check('id', 'The ID is not valid').isMongoId(),
     check('id', 'The id is required').custom(eventIDExists),
