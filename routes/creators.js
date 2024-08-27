@@ -1,6 +1,7 @@
 import { check } from 'express-validator'
 import { createCreator, creatorById, deleteCreate, listCreators, updateCreator } from '../controllers/creators.js'
-import { creatorIDExists } from '../helpers/db-validators.js'
+import { Creator } from '../models/creator.js'
+import { IDExists } from '../helpers/db-validators.js'
 import { isAdminRole } from '../middlewares/validate-roles.js'
 import { Router } from 'express'
 import { validateFields } from '../middlewares/validate-fields.js'
@@ -13,7 +14,7 @@ routerCreators.get('/', [ validateJWT ], listCreators)
 routerCreators.get('/:id', [
     validateJWT,
     check('id', 'The ID is not valid').isMongoId(),
-    check('id', 'The id is required').custom(creatorIDExists),
+    check('id', 'The id is required').custom(IDExists(Creator)),
     validateFields
 ], creatorById)
 
@@ -30,7 +31,7 @@ routerCreators.post('/', [
 routerCreators.put('/:id', [
     validateJWT,
     check('id', 'The ID is not valid').isMongoId(),
-    check('id', 'The id is required').custom(creatorIDExists),
+    check('id', 'The id is required').custom(IDExists(Creator)),
     validateFields
 ], updateCreator)
 
@@ -38,6 +39,6 @@ routerCreators.delete('/:id', [
     validateJWT,
     isAdminRole,
     check('id', 'The ID is not valid').isMongoId(),
-    check('id', 'The id is required').custom(creatorIDExists),
+    check('id', 'The id is required').custom(IDExists(Creator)),
     validateFields
 ], deleteCreate)

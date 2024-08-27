@@ -1,10 +1,11 @@
-import { cartoonIDExists } from '../helpers/db-validators.js'
+import { Cartoon } from '../models/cartoon.js'
+import { cartoonById, createCartoon, deleteCartoon, listCartoons, updateCartoon } from '../controllers/cartoons.js'
 import { check } from 'express-validator'
+import { IDExists } from '../helpers/db-validators.js'
 import { isAdminRole } from '../middlewares/validate-roles.js'
 import { Router } from 'express'
 import { validateFields } from '../middlewares/validate-fields.js'
 import { validateJWT } from '../middlewares/validate-jwt.js'
-import { cartoonById, createCartoon, deleteCartoon, listCartoons, updateCartoon } from '../controllers/cartoons.js'
 
 export const routerCartoons = Router()
 
@@ -13,7 +14,7 @@ routerCartoons.get('/', [ validateJWT ], listCartoons)
 routerCartoons.get('/:id', [
     validateJWT,
     check('id', 'The ID is not valid').isMongoId(),
-    check('id', 'The id is required').custom(cartoonIDExists),
+    check('id', 'The id is required').custom(IDExists(Cartoon)),
     validateFields
 ], cartoonById)
 
@@ -35,7 +36,7 @@ routerCartoons.post('/', [
 routerCartoons.put('/:id', [
     validateJWT,
     check('id', 'The ID is not valid').isMongoId(),
-    check('id', 'The id is required').custom(cartoonIDExists),
+    check('id', 'The id is required').custom(IDExists(Cartoon)),
     validateFields
 ], updateCartoon)
 
@@ -43,6 +44,6 @@ routerCartoons.delete('/:id', [
     validateJWT,
     isAdminRole,
     check('id', 'The ID is not valid').isMongoId(),
-    check('id', 'The id is required').custom(cartoonIDExists),
+    check('id', 'The id is required').custom(IDExists(Cartoon)),
     validateFields
 ], deleteCartoon)
