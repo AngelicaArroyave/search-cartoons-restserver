@@ -5,6 +5,7 @@ import { routerComics } from '../routes/comics.js'
 import { routerCreators } from '../routes/creators.js'
 import { routerEvents } from '../routes/events.js'
 import { routerSeries } from '../routes/series.js'
+import { routerStories } from '../routes/stories.js'
 import { routerUser } from '../routes/users.js'
 import cors from 'cors'
 import express from 'express'
@@ -20,6 +21,7 @@ export class Server {
             creators: '/api/creators',
             events: '/api/events',
             series: '/api/series',
+            stories: '/api/stories',
             users: '/api/users'
         }
         this.connectToDB() // Connect to the database
@@ -44,6 +46,7 @@ export class Server {
         this.app.use(this.paths.creators, routerCreators),
         this.app.use(this.paths.events, routerEvents),
         this.app.use(this.paths.series, routerSeries),
+        this.app.use(this.paths.stories, routerStories),
         this.app.use(this.paths.users, routerUser)
     }
 

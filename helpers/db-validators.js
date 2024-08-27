@@ -4,6 +4,7 @@ import { Creator } from '../models/creator.js'
 import { Event } from '../models/event.js'
 import { Role } from '../models/role.js'
 import { Serie } from '../models/serie.js'
+import { Storie } from '../models/storie.js'
 import { User } from '../models/user.js'
 
 export const isValidRole = async (role = '') => {
@@ -56,6 +57,12 @@ export const comicIDExists = async (id = '') => {
 
 export const serieIDExists = async (id = '') => {
     const exists = await Serie.findById(id)
+
+    if(!exists) throw new Error(`The ID ${id} does not exist in the database`)
+}
+
+export const storieIDExists = async (id = '') => {
+    const exists = await Storie.findById(id)
 
     if(!exists) throw new Error(`The ID ${id} does not exist in the database`)
 }
