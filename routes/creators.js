@@ -1,5 +1,5 @@
 import { check } from 'express-validator'
-import { createCreator, creatorById, deleteCreate, listCreators, updateCreator } from '../controllers/creator.js'
+import { createCreator, creatorById, deleteCreate, listCreators, updateCreator } from '../controllers/creators.js'
 import { creatorIDExists } from '../helpers/db-validators.js'
 import { isAdminRole } from '../middlewares/validate-roles.js'
 import { Router } from 'express'
