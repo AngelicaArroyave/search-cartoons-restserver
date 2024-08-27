@@ -1,5 +1,6 @@
 import { dbConnection } from '../database/config.js'
 import { routerAuth } from '../routes/auth.js'
+import { routerCartoons } from '../routes/cartoons.js'
 import { routerCharacters } from '../routes/characters.js'
 import { routerComics } from '../routes/comics.js'
 import { routerCreators } from '../routes/creators.js'
@@ -16,6 +17,7 @@ export class Server {
         this.port = process.env.PORT
         this.paths = {
             auth: '/api/auth',
+            cartoons: '/api/cartoons',
             characters: '/api/characters',
             comics: '/api/comics',
             creators: '/api/creators',
@@ -41,6 +43,7 @@ export class Server {
 
     routes() {
         this.app.use(this.paths.auth, routerAuth),
+        this.app.use(this.paths.cartoons, routerCartoons),
         this.app.use(this.paths.characters, routerCharacters),
         this.app.use(this.paths.comics, routerComics),
         this.app.use(this.paths.creators, routerCreators),

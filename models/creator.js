@@ -19,8 +19,7 @@ const CreatorSchema = new Schema({
         required: [ true, 'The full name field is required' ],
     },
     image: {
-        type: String,
-        required: [ true, 'The image field is required' ],
+        type: String
     },
     user: {
         type: Schema.Types.ObjectId,

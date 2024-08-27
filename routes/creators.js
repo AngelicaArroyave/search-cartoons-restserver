@@ -24,7 +24,6 @@ routerCreators.post('/', [
     check('middleName', 'The middle name is required').not().isEmpty(),
     check('lastName', 'The last name is required').not().isEmpty(),
     check('fullName', 'The full name is required').not().isEmpty(),
-    check('image', 'The image is required').not().isEmpty(),
     validateFields
 ], createCreator)
 

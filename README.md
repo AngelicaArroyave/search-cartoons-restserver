@@ -31,4 +31,5 @@ Para ejecutar o correr el proyecto se debe usar el comando ```nodemon app```, si
 
 ### **Nota:**
 1. Recordar que al descargar el código se debe ejecutar el comando ```npm install``` para la construcción de los diferentes módulos
-2. Se implementa el servicio de Google Sing In para autenticación del usuario
+2. Se implementa el servicio de Google Sing In para autenticación del usuario3.
+3. La información que se usa para las pruebas y el modelo de base de datos, se hace teniendo en cuenta las API's [Sample Apis](https://api.sampleapis.com/cartoons/cartoons2D) y [Marvel API's](https://developer.marvel.com/)

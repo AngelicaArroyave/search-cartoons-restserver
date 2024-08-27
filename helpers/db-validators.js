@@ -1,3 +1,4 @@
+import { Cartoon } from '../models/cartoon.js'
 import { Character } from '../models/character.js'
 import { Comic } from '../models/comic.js'
 import { Creator } from '../models/creator.js'
@@ -63,6 +64,12 @@ export const serieIDExists = async (id = '') => {
 
 export const storieIDExists = async (id = '') => {
     const exists = await Storie.findById(id)
+
+    if(!exists) throw new Error(`The ID ${id} does not exist in the database`)
+}
+
+export const cartoonIDExists = async (id = '') => {
+    const exists = await Cartoon.findById(id)
 
     if(!exists) throw new Error(`The ID ${id} does not exist in the database`)
 }
