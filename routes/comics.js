@@ -1,6 +1,7 @@
 import { check } from 'express-validator'
+import { Comic } from '../models/comic.js'
 import { comicById, createComic, deleteComic, listComics, updateComic } from '../controllers/comics.js'
-import { comicIDExists } from '../helpers/db-validators.js'
+import { IDExists } from '../helpers/db-validators.js'
 import { isAdminRole } from '../middlewares/validate-roles.js'
 import { Router } from 'express'
 import { validateFields } from '../middlewares/validate-fields.js'
@@ -13,7 +14,7 @@ routerComics.get('/', [ validateJWT ], listComics)
 routerComics.get('/:id', [
     validateJWT,
     check('id', 'The ID is not valid').isMongoId(),
-    check('id', 'The id is required').custom(comicIDExists),
+    check('id', 'The id is required').custom(IDExists(Comic)),
     validateFields
 ], comicById)
 
@@ -31,7 +32,7 @@ routerComics.post('/', [
 routerComics.put('/:id', [
     validateJWT,
     check('id', 'The ID is not valid').isMongoId(),
-    check('id', 'The id is required').custom(comicIDExists),
+    check('id', 'The id is required').custom(IDExists(Comic)),
     validateFields
 ], updateComic)
 
@@ -39,6 +40,6 @@ routerComics.delete('/:id', [
     validateJWT,
     isAdminRole,
     check('id', 'The ID is not valid').isMongoId(),
-    check('id', 'The id is required').custom(comicIDExists),
+    check('id', 'The id is required').custom(IDExists(Comic)),
     validateFields
 ], deleteComic)

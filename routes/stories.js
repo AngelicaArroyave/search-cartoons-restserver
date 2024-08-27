@@ -1,8 +1,9 @@
 import { check } from 'express-validator'
 import { createStorie, deleteStorie, listStories, storieById, updateStorie } from '../controllers/stories.js'
+import { IDExists } from '../helpers/db-validators.js'
 import { isAdminRole } from '../middlewares/validate-roles.js'
 import { Router } from 'express'
-import { storieIDExists } from '../helpers/db-validators.js'
+import { Storie } from '../models/storie.js'
 import { validateFields } from '../middlewares/validate-fields.js'
 import { validateJWT } from '../middlewares/validate-jwt.js'
 
@@ -13,7 +14,7 @@ routerStories.get('/', [ validateJWT ], listStories)
 routerStories.get('/:id', [
     validateJWT,
     check('id', 'The ID is not valid').isMongoId(),
-    check('id', 'The id is required').custom(storieIDExists),
+    check('id', 'The id is required').custom(IDExists(Storie)),
     validateFields
 ], storieById)
 
@@ -29,7 +30,7 @@ routerStories.post('/', [
 routerStories.put('/:id', [
     validateJWT,
     check('id', 'The ID is not valid').isMongoId(),
-    check('id', 'The id is required').custom(storieIDExists),
+    check('id', 'The id is required').custom(IDExists(Storie)),
     validateFields
 ], updateStorie)
 
@@ -37,6 +38,6 @@ routerStories.delete('/:id', [
     validateJWT,
     isAdminRole,
     check('id', 'The ID is not valid').isMongoId(),
-    check('id', 'The id is required').custom(storieIDExists),
+    check('id', 'The id is required').custom(IDExists(Storie)),
     validateFields
 ], deleteStorie)

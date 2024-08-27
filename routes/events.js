@@ -1,6 +1,6 @@
 import { check } from 'express-validator'
 import { createEvent, deleteEvent, eventById, listEvents, updateEvent } from '../controllers/events.js'
-import { eventIDExists } from '../helpers/db-validators.js'
+import { IDExists } from '../helpers/db-validators.js'
 import { isAdminRole } from '../middlewares/validate-roles.js'
 import { Router } from 'express'
 import { validateFields } from '../middlewares/validate-fields.js'
@@ -13,7 +13,7 @@ routerEvents.get('/', [ validateJWT ], listEvents)
 routerEvents.get('/:id', [
     validateJWT,
     check('id', 'The ID is not valid').isMongoId(),
-    check('id', 'The id is required').custom(eventIDExists),
+    check('id', 'The id is required').custom(IDExists(Event)),
     validateFields
 ], eventById)
 
@@ -31,7 +31,7 @@ routerEvents.post('/', [
 routerEvents.put('/:id', [
     validateJWT,
     check('id', 'The ID is not valid').isMongoId(),
-    check('id', 'The id is required').custom(eventIDExists),
+    check('id', 'The id is required').custom(IDExists(Event)),
     validateFields
 ], updateEvent)
 
@@ -39,6 +39,6 @@ routerEvents.delete('/:id', [
     validateJWT,
     isAdminRole,
     check('id', 'The ID is not valid').isMongoId(),
-    check('id', 'The id is required').custom(eventIDExists),
+    check('id', 'The id is required').custom(IDExists(Event)),
     validateFields
 ], deleteEvent)
