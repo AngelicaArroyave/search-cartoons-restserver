@@ -1,0 +1,58 @@
+.gradient-custom, button:hover {
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  border: none;
+}
+
+.container {
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card {
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  color: white;
+  width: 500px;
+  height: 640px;
+  background-color: rgba(0, 0, 0, 0.697);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
+
+input, input::placeholder, input:focus {
+  background-color: transparent;
+  color: white;
+  height: 50px;
+}
+
+button {
+  margin-top: 50px;
+}
+
+.card-instructions {
+  color: silver;
+  margin-bottom: 60px;
+}
+
+.card-information {
+  margin-top: 60px;
+}
+
+.signUp-btn {
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+  background-clip: text;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

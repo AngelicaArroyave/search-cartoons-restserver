@@ -4,8 +4,7 @@
 }
 
 .container {
-  height: 100vh;
-  padding: 16px;
+  height: 95vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,7 +17,7 @@
   padding: 1rem;
   color: white;
   width: 500px;
-  height: 700px;
+  height: 640px;
   background-color: rgba(0, 0, 0, 0.697);
 }
 
@@ -52,4 +51,8 @@ button {
 .signUp-btn {
   background: linear-gradient(to right, #0072ff, #00c6ff);
   background-clip: text;
+
+  &:hover {
+    cursor: pointer;
+  }
 }

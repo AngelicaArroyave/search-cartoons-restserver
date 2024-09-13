@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SingInComponent } from './components/sing-in/sing-in.component';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { LoginRoutingModule } from './login-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    SingInComponent
   ],
   imports: [
-    CommonModule
+    BrowserModule,
+    LoginRoutingModule,
+    ReactiveFormsModule
   ],
-  exports: [
-    SingInComponent
-  ]
+  providers: [],
+  bootstrap: []
 })
-
 export class LoginModule { }

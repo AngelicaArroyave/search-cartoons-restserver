@@ -1,0 +1,23 @@
+.container-group {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 20px 0;
+}
+
+.input-group {
+  width: 30rem;
+}
+
+.input-group-text .icon-tabler {
+  stroke: #00c6ff;
+  transition: stroke 0.3s;
+}
+
+.input-group-text:hover {
+  stroke: #000;
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+}
+
+.input-group-text:hover .icon-tabler {
+  stroke: white;
+}
