@@ -10,20 +10,24 @@ import { LoginModule } from './login/login.module';
 import { SignInComponent } from './login/components/sign-in/sign-in.component';
 import { SignUpComponent } from './login/components/sign-up/sign-up.component';
 import { UserComponent } from './user/components/user/user.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignUpComponent,
     SignInComponent,
-    UserComponent
+    UserComponent,
+    NavbarComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
     LoginModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

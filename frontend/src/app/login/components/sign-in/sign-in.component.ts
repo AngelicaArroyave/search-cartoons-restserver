@@ -33,12 +33,22 @@ export class SignInComponent {
 
     this.loginService.login(email, password).subscribe({
       next: response => {
-        response ? this.router.navigate(['user']) : this.errorMessage = 'Invalid email or password'
+        response ?
+                  (this.router.navigate(['user']),
+                  localStorage.setItem('token', response.token))
+                  : this.errorMessage = 'Invalid email or password'
       },
       error: error => {
         console.log('Error in login request', error)
         this.errorMessage = 'Error logging in. Please try again'
       }
     })
+  }
+
+  logout() {
+    if(!this.loginService.loggedIn()) return
+
+    localStorage.removeItem('token')
+    this.router.navigate(['sign-in'])
   }
 }

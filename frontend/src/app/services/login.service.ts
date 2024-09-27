@@ -12,6 +12,18 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   login(email: string, password: string) {
-    return this.http.post(this.path, { email, password });
+    return this.http.post<any>(this.path, { email, password });
+  }
+
+  loggedIn() {
+    return !!localStorage.getItem('token') // Funciona como un if condicional, retorna true o false
+  }
+
+  getToken() {
+    return localStorage.getItem('token')
+  }
+
+  logout() {
+    localStorage.removeItem('token')
   }
 }

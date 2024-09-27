@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <img src="../../../assets/logo.svg" alt="Logo">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="#"> Cartoons </a>
+        <a class="nav-link" href="#"> Comics </a>
+        <a class="nav-link" href="#"> Movies </a>
+        <a class="nav-link" href="#"> Series </a>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <!-- <a class="nav-link" href="#" routerLink="sign-in" *ngIf="currentUrl === '/' || currentUrl === '/sign-in' || currentUrl === '/sign-up'" (click)="sign()"> Sign In </a> -->
+        <a class="nav-link" href="#" routerLink="sign-in" *ngIf="currentUrl !== '/user'"> Sign In </a>
+        <!-- <a class="nav-link" href="#" routerLink="sign-up" *ngIf="currentUrl === '/' || currentUrl === '/sign-in' || currentUrl === '/sign-up'" (click)="sign()"> Sign Up </a> -->
+        <a class="nav-link" href="#" routerLink="sign-up" *ngIf="currentUrl !== '/user'"> Sign Up </a>
+        <a class="nav-link" href="#" *ngIf="currentUrl === '/user'" (click)="logout()"> Log Out </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<hr class="m-0">
