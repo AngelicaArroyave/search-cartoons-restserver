@@ -3,7 +3,7 @@ import { User } from '../models/user.js'
 import bcryptjs from 'bcryptjs'
 
 export const usersGet = async(req = request, res = response) => {
-    const { limit = 2, from = 0 } = req.query
+    const { limit = 10, from = 0 } = req.query
     const query = { state: true }
     const users = await User.find(query).skip(Number(from)).limit(Number(limit))
     const total = await User.countDocuments(query)

@@ -1,7 +1,8 @@
 # search-cartoons-restserver
 Proyecto de búsqueda y administración de cartoons con Node JS y Angular, basados en el curso *Legacy - Node de cero a experto en Udemy*
 
-## Instalaciones necesarias
+## Backend
+### Instalaciones necesarias
 Para iniciar el proyecto se necesita instalar las siguientes dependencias:
 1. ```npm init -y``` Para crear el package.json
 2. ```npm install nodemon``` Es una herramienta que ayuda a desarrollar aplicaciones basadas en Node.js reiniciando automáticamente la aplicación cuando se detectan cambios en los archivos
@@ -14,10 +15,10 @@ Para iniciar el proyecto se necesita instalar las siguientes dependencias:
 9. ```npm install jsonwebtoken``` Generación e implementación de JWT (Json Web Token)
 10. ```npm install google-auth-library --save``` Librería necesaria para la verificación de cuenta con Google
 
-## ¿Cómo ejecutar el código?
+### ¿Cómo ejecutar el código?
 Para ejecutar o correr el proyecto se debe usar el comando ```nodemon app```, sin embargo en mi caso debo usar ```npx nodemon app```
 
-## Documentación
+### Documentación
 1. [Nodemon](https://www.npmjs.com/package/nodemon)
 2. [npm - Express](https://www.npmjs.com/package/express)
 3. [Express](https://expressjs.com/)
@@ -29,7 +30,17 @@ Para ejecutar o correr el proyecto se debe usar el comando ```nodemon app```, si
 9. [JWT - Json Web Token](https://www.npmjs.com/package/jsonwebtoken)
 10. [Google Sign In - Google Identity](https://developers.google.com/identity/gsi/web/guides/overview?hl=es-419)
 
-### **Nota:**
+## Frontend
+### ¿Cómo ejecutar el código?
+1. Ejecutar ```ng serve``` y navegar manualmente a la URL ```http://localhost:4200/```
+2. Otra forma de ejecutar el proyecto es ejecutar el comando ```ng serve -o```, automaticamente abrirá la aplicación en el navegador en la URL ```http://localhost:4200/```
+
+### Documentación
+1. [Angular CLI](https://angular.io/cli)
+2. [HTTP - Interceptor](https://v17.angular.io/guide/http-interceptor-use-cases)
+3. [Bootstrap](https://getbootstrap.com/)
+
+#### **Notas:**
 1. Recordar que al descargar el código se debe ejecutar el comando ```npm install``` para la construcción de los diferentes módulos
-2. Se implementa el servicio de Google Sing In para autenticación del usuario3.
+2. Se implementa el servicio de Google Sing In para autenticación del usuario
 3. La información que se usa para las pruebas y el modelo de base de datos, se hace teniendo en cuenta las API's [Sample Apis](https://api.sampleapis.com/cartoons/cartoons2D) y [Marvel API's](https://developer.marvel.com/)

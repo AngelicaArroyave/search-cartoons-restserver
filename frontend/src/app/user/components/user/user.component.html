@@ -2,13 +2,6 @@
   <div class="container-group">
     <div class="input-group m-3">
       <input type="text" class="form-control" placeholder="Enter something to search" aria-label="Search" aria-describedby="basic-addon1">
-      <!-- <span class="input-group-text" id="basic-addon1">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="#00abfb" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-          <path d="M21 21l-6 -6" />
-        </svg>
-      </span> -->
       <span class="input-group-text" id="basic-addon1">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -19,32 +12,23 @@
     </div>
   </div>
 
-  <table class="table">
+  <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col"> # </th>
+        <th scope="col"> Name </th>
+        <th scope="col"> Email </th>
+        <th scope="col"> Role </th>
+        <th scope="col"> State </th>
       </tr>
     </thead>
     <tbody class="table-group-divider">
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
+      <tr *ngFor="let user of users; let i = index">
+        <th scope="row"> {{ i + 1 }} </th>
+        <td> {{ user.name }} </td>
+        <td> {{ user.email }} </td>
+        <td> {{ user.role }} </td>
+        <td> {{ user.state }} </td>
       </tr>
     </tbody>
   </table>
